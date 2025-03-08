@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+
+    <!-- Correct HTMX script -->
+    <script src="https://unpkg.com/htmx.org@2.0.0"></script>
+</head>
+
+
+<body>
+<li id="task-{{ .Id }}">
+    {{ .Title }} - {{ .Status }}
+    <button
+            hx-delete="/todos/{{ .Id }}"
+            hx-target="#task-{{ .Id }}"
+            hx-swap="delete">
+        Delete
+    </button>
+</li>
+
+
+</body>
